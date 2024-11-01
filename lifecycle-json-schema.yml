@@ -1,0 +1,37 @@
+---
+"$schema": http://json-schema.org/2020-12/schema
+type: object
+description: A machine-readable scaffolding for the API lifecycle.
+properties:
+  "^(label_name_[0-9]+)+$"":
+    "$ref": "#/$defs/Stage"
+
+"$defs":
+
+  Stage:
+    type: object
+    description: A representation of an individual lifecycle stage.
+    properties:
+      name:
+        type: string
+        description: The name of the stage being defined.
+      description:
+        type: string
+        description: A more detailed overview of the stage.
+      image:
+        type: string
+        description: An image to represent the stage.
+      policies:
+        type: array
+        description: The policies that apply to the stage.
+        items:
+          - type: string
+      guidance:
+        type: string
+        description: The guidance that applies to this stage.
+    required:
+    - name
+    - description
+    - image
+    - policies
+    - guidance
